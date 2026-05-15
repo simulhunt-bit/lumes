@@ -4,7 +4,6 @@
   "installCommand": "npm ci",
   "framework": "nextjs",
   "outputDirectory": ".next",
-  "nodejs": "18.x",
   "regions": ["iad1"],
   "env": [
     "NEXTAUTH_SECRET",
