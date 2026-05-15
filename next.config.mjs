@@ -7,10 +7,15 @@ const nextConfig = {
             hostname: 'placehold.co',
             port: ""
           },
+          {
+            protocol: 'https',
+            hostname: '**.unsplash.com',
+            port: ""
+          },
         ],
       },
     env: {
-        NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+        NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001',
     },
     async headers() {
       return [
@@ -32,6 +37,9 @@ const nextConfig = {
           ],
         },
       ];
+    },
+    experimental: {
+      isrMemoryCacheSize: 52 * 1024 * 1024,
     },
 };
 

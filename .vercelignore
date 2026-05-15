@@ -1,0 +1,20 @@
+# Ignore files during build
+.git
+.gitignore
+README.md
+LICENSE
+BULK-UPLOAD-*.md
+DELETE-BULK-UPLOAD-GUIDE.md
+TROUBLESHOOTING-DELETE-BATCH.md
+.env
+.env.local
+.env.*.local
+node_modules
+.next/cache
+.next/static
+coverage
+.vscode
+.idea
+*.log
+.DS_Store
+Thumbs.db
