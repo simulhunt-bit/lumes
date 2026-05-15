@@ -15,7 +15,6 @@ export function useSessionTimeoutTest() {
     if (typeof window === 'undefined') return;
     
     if (status === "authenticated" && session) {
-      console.log('🕐 Session timeout test started - 30 seconds');
       
       const startTimeout = () => {
         // Clear existing timeout
@@ -25,7 +24,6 @@ export function useSessionTimeoutTest() {
         
         // Set new timeout
         timeoutRef.current = setTimeout(() => {
-          console.log('🚪 Session expired - signing out');
           signOut({ 
             callbackUrl: "/login?expired=true",
             redirect: true 
@@ -38,7 +36,6 @@ export function useSessionTimeoutTest() {
 
       // Reset timeout on user activity
       const resetTimeout = () => {
-        console.log('🔄 User activity detected - resetting timeout');
         startTimeout();
       };
 

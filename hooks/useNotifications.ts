@@ -39,7 +39,6 @@ export const useNotifications = () => {
       const userData = await response.json();
       return userData?.id || null;
     } catch (error) {
-      console.error('Error fetching user ID:', error);
       return null;
     }
   }, [session?.user?.email]);
@@ -72,7 +71,7 @@ export const useNotifications = () => {
       const { unreadCount } = await notificationApi.getUnreadCount(userId);
       setUnreadCount(unreadCount);
     } catch (error) {
-      console.error('Error fetching unread count:', error);
+      // Silently fail for unread count
     }
   }, [getCurrentUserId, setUnreadCount]);
 
@@ -221,7 +220,7 @@ export const useUnreadCount = () => {
         setUnreadCount(unreadCount);
       }
     } catch (error) {
-      console.error('Error fetching unread count:', error);
+      // Silently fail for unread count auto-refresh
     }
   }, [session?.user?.email, setUnreadCount]);
 
