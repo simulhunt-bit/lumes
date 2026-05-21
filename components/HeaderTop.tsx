@@ -13,10 +13,8 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import toast from "react-hot-toast";
-import { FaHeadphones } from "react-icons/fa6";
-import { FaRegEnvelope } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa6";
+import { FiMapPin, FiTruck } from "react-icons/fi";
 
 const HeaderTop = () => {
   const { data: session }: any = useSession();
@@ -26,39 +24,39 @@ const HeaderTop = () => {
     toast.success("Logout successful!");
   }
   return (
-    <div className="h-10 text-white bg-blue-500 max-lg:px-5 max-lg:h-16 max-[573px]:px-0">
-      <div className="flex justify-between h-full max-lg:flex-col max-lg:justify-center max-lg:items-center max-w-screen-2xl mx-auto px-12 max-[573px]:px-0">
-        <ul className="flex items-center h-full gap-x-5 max-[370px]:text-sm max-[370px]:gap-x-2">
-          <li className="flex items-center gap-x-2 font-semibold">
-            <FaHeadphones className="text-white" />
-            <span>+381 61 123 321</span>
+    <div className="border-b border-white/10 bg-[var(--color-ink)] text-white">
+      <div className="mx-auto flex min-h-11 max-w-screen-2xl flex-col justify-center gap-2 px-6 py-2 text-xs font-medium sm:flex-row sm:items-center sm:justify-between lg:px-10">
+        <ul className="flex flex-wrap items-center gap-x-4 gap-y-1 text-white/72">
+          <li className="flex items-center gap-x-2">
+            <FiMapPin className="text-[var(--color-gold)]" />
+            <span>Bangladesh Wide Delivery</span>
           </li>
-          <li className="flex items-center gap-x-2 font-semibold">
-            <FaRegEnvelope className="text-white text-xl" />
-            <span>test@email.com</span>
+          <li className="flex items-center gap-x-2">
+            <FiTruck className="text-[var(--color-gold)]" />
+            <span>Premium Jerseys &amp; Modern Fashion</span>
           </li>
         </ul>
-        <ul className="flex items-center gap-x-5 h-full max-[370px]:text-sm max-[370px]:gap-x-2 font-semibold">
+        <ul className="flex items-center gap-x-5 font-semibold uppercase tracking-[0.16em] text-white/88">
           {!session ? ( 
           <>
           <li className="flex items-center">
-            <Link href="/login" className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
+            <Link href="/login" className="flex items-center gap-x-2">
+              <FaRegUser className="text-[var(--color-gold)]" />
               <span>Login</span>
             </Link>
           </li>
           <li className="flex items-center">
-            <Link href="/register" className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
+            <Link href="/register" className="flex items-center gap-x-2">
+              <FaRegUser className="text-[var(--color-gold)]" />
               <span>Register</span>
             </Link>
           </li>
           </>
           ) :  (<>
-          <span className="ml-10 text-base">{session.user?.email}</span>
+          <span className="text-[10px] tracking-[0.14em] text-white/65">{session.user?.email}</span>
           <li className="flex items-center">
-            <button onClick={() => handleLogout()} className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
+            <button onClick={() => handleLogout()} className="flex items-center gap-x-2">
+              <FaRegUser className="text-[var(--color-gold)]" />
               <span>Log out</span>
             </button>
           </li>

@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-cream: #f7f1e8;
+    --color-sand: #eadfcd;
+    --color-ink: #1a1612;
+    --color-red: #c52c1e;
+    --color-red-dark: #a12318;
+    --color-gold: #f3b034;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-manrope), sans-serif;
+}
+
+.font-display {
+    font-family: var(--font-display), sans-serif;
+}
+
+.font-bengali {
+    font-family: var(--font-bengali), sans-serif;
+}
 
 .range{
     --range-shdw: #3B82F6;

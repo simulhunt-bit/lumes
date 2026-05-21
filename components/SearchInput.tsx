@@ -32,10 +32,10 @@ const SearchInput = () => {
         type="text"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        placeholder="Type here"
-        className="bg-gray-50 input input-bordered w-[70%] rounded-r-none outline-none focus:outline-none max-sm:w-full"
+        placeholder="Search jerseys, fits, and trends"
+        className="input input-bordered w-full rounded-r-none border-black/10 bg-white/80 outline-none focus:outline-none focus:ring-0"
       />
-      <button type="submit" className="btn bg-blue-500 text-white rounded-l-none rounded-r-xl hover:bg-blue-600">
+      <button type="submit" className="btn rounded-l-none rounded-r-full border-none bg-[var(--color-red)] px-6 text-white hover:bg-[var(--color-red-dark)]">
         Search
       </button>
     </form>

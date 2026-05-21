@@ -15,7 +15,6 @@ import HeaderTop from "./HeaderTop";
 import Image from "next/image";
 import SearchInput from "./SearchInput";
 import Link from "next/link";
-import { FaBell } from "react-icons/fa6";
 
 import CartElement from "./CartElement";
 import NotificationBell from "./NotificationBell";
@@ -73,18 +72,30 @@ const Header = () => {
 
   useEffect(() => {
     getUserByEmail();
-  }, [session?.user?.email, wishlist.length]);
+  }, [session?.user?.email, getUserByEmail, wishlist.length]);
 
   return (
-    <header className="bg-white">
+    <header className="sticky top-0 z-40 border-b border-black/10 bg-[var(--color-cream)]/90 backdrop-blur">
       <HeaderTop />
       {pathname.startsWith("/admin") === false && (
-        <div className="h-32 bg-white flex items-center justify-between px-16 max-[1320px]:px-16 max-md:px-6 max-lg:flex-col max-lg:gap-y-7 max-lg:justify-center max-lg:h-60 max-w-screen-2xl mx-auto">
-          <Link href="/">
-            <img src="/logo v1 svg.svg" width={300} height={300} alt="LUMESBD logo" className="relative right-5 max-[1023px]:w-56" />
+        <div className="mx-auto grid max-w-screen-2xl gap-6 px-6 py-5 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:px-10">
+          <Link href="/" className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-red)] text-white shadow-[0_14px_30px_rgba(197,44,30,0.25)]">
+              <span className="font-display text-3xl leading-none">L</span>
+            </div>
+            <div>
+              <p className="font-display text-3xl uppercase leading-none text-[var(--color-ink)]">
+                LUMES BD
+              </p>
+              <p className="font-bengali text-sm font-semibold text-[var(--color-red)]">
+                লুমেস
+              </p>
+            </div>
           </Link>
-          <SearchInput />
-          <div className="flex gap-x-10 items-center">
+          <div className="w-full lg:px-6">
+            <SearchInput />
+          </div>
+          <div className="flex items-center justify-between gap-x-6 sm:justify-end sm:gap-x-8">
             <NotificationBell />
             <HeartElement wishQuantity={wishQuantity} />
             <CartElement />

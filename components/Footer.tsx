@@ -8,101 +8,53 @@
 // Output: Footer component
 // *********************
 
-import { navigation } from "@/lib/utils";
-import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
-      <div>
+    <footer className="bg-[var(--color-ink)] text-white" aria-labelledby="footer-heading">
+      <div className="mx-auto max-w-screen-2xl px-6 py-16 lg:px-10">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-8 pt-24 pb-14">
-          <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <Image
-              src="/logo v1.png"
-              alt="LUMESBD logo"
-              width={250}
-              height={250}
-              className="h-auto w-auto"
-            />
-            <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-lg font-bold leading-6 text-blue-600">
-                    Sale
-                  </h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.sale.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className="text-sm leading-6 text-black hover:text-gray-700"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-10 md:mt-0">
-                  <h3 className="text-base font-bold leading-6 text-blue-600">
-                    About Us
-                  </h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.about.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className="text-sm leading-6 text-black hover:text-gray-700"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-base font-bold leading-6 text-blue-600">
-                    Buying
-                  </h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.buy.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className="text-sm leading-6 text-black hover:text-gray-700"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-10 md:mt-0">
-                  <h3 className="text-base font-bold leading-6 text-blue-600">
-                    Support
-                  </h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.help.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className="text-sm leading-6 text-black hover:text-gray-700"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
+        <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
+          <div>
+            <p className="font-display text-4xl uppercase text-white">LUMES BD</p>
+            <p className="font-bengali mt-2 text-lg font-semibold text-[var(--color-gold)]">
+              লুমেস
+            </p>
+            <p className="mt-5 max-w-md text-sm leading-7 text-white/68">
+              Premium Jerseys &amp; Modern Fashion for Men &amp; Women.
+              Built on quality, comfort, and trend with delivery all over Bangladesh.
+            </p>
           </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
+              Explore
+            </h3>
+            <ul className="mt-5 space-y-3 text-sm text-white/74">
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/shop">Shop</Link></li>
+              <li><Link href="/search">Search</Link></li>
+              <li><Link href="/cart">Cart</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
+              Brand Promise
+            </h3>
+            <ul className="mt-5 space-y-3 text-sm text-white/74">
+              <li>Quality</li>
+              <li>Comfort</li>
+              <li>Trend</li>
+              <li>Delivery All Over Bangladesh</li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 pt-6 text-xs uppercase tracking-[0.18em] text-white/48 sm:flex-row sm:items-center sm:justify-between">
+          <p>Light Up Your Style</p>
+          <p>lumesbd.shop</p>
         </div>
       </div>
     </footer>

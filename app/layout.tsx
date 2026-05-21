@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bebas_Neue, Hind_Siliguri, Manrope } from "next/font/google";
 import "./globals.css";
 import { getServerSession } from "next-auth/next";
 import 'svgmap/dist/svgMap.min.css';
@@ -9,11 +9,28 @@ import Footer from "@/components/Footer";
 import Providers from "@/Providers";
 import SessionTimeoutWrapper from "@/components/SessionTimeoutWrapper";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+});
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-bengali",
+});
 
 export const metadata: Metadata = {
-  title: "LUMESBD - Light Up Your Style | Premium Fashion & Jerseys",
-  description: "Premium Jerseys & Modern Fashion Wear for Men & Women ⚽👕✨. Quality | Comfort | Trend. Delivery All Over Bangladesh. Visit lumesbd.com",
+  metadataBase: new URL("https://lumesbd.shop"),
+  title: "LUMES BD | Light Up Your Style",
+  description:
+    "Premium Jerseys & Modern Fashion for Men & Women. Quality, comfort, and trend-focused style with delivery all over Bangladesh.",
 };
 
 export default async function RootLayout({
@@ -24,7 +41,7 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en" data-theme="light">
-      <body className={inter.className}>
+      <body className={`${manrope.variable} ${bebasNeue.variable} ${hindSiliguri.variable}`}>
         <SessionProvider session={session}>
           <SessionTimeoutWrapper />
           <Header />
