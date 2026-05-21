@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "prisma generate && next dev",       
-    "build": "prisma generate && next build",   
-    "start": "next start",
-    "lint": "next lint",
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "dev": "npm exec prisma generate && npm exec next dev",
+    "build": "npm exec prisma generate && npm exec next build",
+    "start": "npm exec next start",
+    "lint": "npm exec next lint",
+    "db:generate": "npm exec prisma generate",
+    "db:push": "npm exec prisma db push",
+    "db:studio": "npm exec prisma studio"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
