@@ -2,6 +2,9 @@
   "name": "electronic-ecommerce-shop-with-dashboard",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
     "dev": "npm exec prisma generate && npm exec next dev",
     "build": "npm exec prisma generate && npm exec next build",

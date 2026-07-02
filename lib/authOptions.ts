@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
               return {
                 id: user.id,
                 email: user.email,
-                role: user.role,
+                role: user.role ?? "user",
               };
             }
           }
@@ -80,7 +80,7 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        token.role = user.role;
+        token.role = user.role ?? "user";
         token.id = user.id;
         token.iat = Math.floor(Date.now() / 1000);
       }
@@ -96,9 +96,9 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      if (token) {
-        session.user.role = token.role as string;
-        session.user.id = token.id as string;
+      if (token?.role && token?.id) {
+        session.user.role = token.role;
+        session.user.id = token.id;
       }
       return session;
     },
@@ -115,6 +115,6 @@ export const authOptions: NextAuthOptions = {
   jwt: {
     maxAge: 15 * 60,
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "development-secret-change-me-in-production",
   debug: process.env.NODE_ENV === "development",
 };
